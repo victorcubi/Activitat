@@ -1,21 +1,40 @@
 import java.util.ArrayList;
 
 public class Nodo {
-    String nombre;
+    private String nombre;
     String ip;
     boolean firewall;
     boolean vulnerable;
     boolean comprometido;
-    ArrayList<Nodo> vecinos;
+    private ArrayList<Nodo> vecinos;
 
     Nodo(String nombre, String ip, boolean firewall, boolean vulnerable) {
-        // TODO: Realizar constructor
+        this.nombre = nombre;
+        this.vecinos = new ArrayList<>();
     }
 
         
     void conectar(Nodo otro) {
-        // TODO: conecta este nodo con "otro" (sin duplicados)
+        if(!vecinos.contains(otro))
+            vecinos.add(otro);
     }
+
+    public String getNombre(){
+        return nombre;
+    }
+    
+    public String getVecinos(){
+        String tmp = "";
+
+        for(Nodo v : vecinos){
+            tmp += "[" + v.getNombre() + "] - ";
+        }
+
+
+        return tmp;
+    }
+
+
 
     @Override
     public String toString() {

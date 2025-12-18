@@ -1,23 +1,30 @@
  import java.util.ArrayList;
 
  public class Red {
-        ArrayList<Nodo> nodos;
+    private ArrayList<Nodo> nodos;
 
-        Red() {
-             // TODO: Realizar constructor
-        }
+    Red() {
+        nodos = new ArrayList<>();
+        
+    }
 
-        void agregarNodo(Nodo n) {
-            // TODO: añade nodo a la red
-        }
+    void agregarNodo(Nodo n){
+        if(!nodos.contains(n))
+            nodos.add(n);
+    }       
 
-        void conectar(Nodo a, Nodo b) {
-            // TODO: conecta a <-> b (bidireccional)
-        }
+    void conectar(Nodo a, Nodo b) {
+        a.conectar(b);
+        b.conectar(a);
+    }
 
         
-        void mostrar() {
-            // TODO: imprime topología (nodo -> vecinos)
+    void mostrar(){
+        System.out.println("--- GRAFO ---");
+        for (Nodo n : nodos){
+            System.out.println( n.getNombre() + "--> "+ n.getVecinos());
+
+    }
         }
         
         void resetCompromisos() {
