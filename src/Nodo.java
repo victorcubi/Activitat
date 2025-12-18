@@ -11,6 +11,9 @@ public class Nodo {
     Nodo(String nombre, String ip, boolean firewall, boolean vulnerable) {
         this.nombre = nombre;
         this.vecinos = new ArrayList<>();
+        this.ip = ip;
+        this.firewall = firewall;
+        this.vulnerable = vulnerable;
     }
 
         
